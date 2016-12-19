@@ -1,31 +1,13 @@
 <template>
    <div id="app" :class="[showMenu ? 'show-menu' : '', 'app']">
-    <sideMenu />
-    <main>
-      <navBar />
-      <section>
-        <inputer />
-        <outputer />
-      </section>
-    </main>
-
+    <common-side-menu />
+    <common-md-editor />
   </div>
 </template>
 
 <script>
-import sideMenu from './components/sideMenu.vue'
-import navBar from './components/navBar.vue'
-import inputer from './components/inputer.vue'
-import outputer from './components/outputer.vue'
-
 export default {
   name: 'app',
-  components: {
-    sideMenu,
-    navBar,
-    inputer,
-    outputer
-  },
   mounted () {
     this.$store.dispatch('loadCache')
   },
@@ -39,15 +21,6 @@ export default {
 
 <style lang="less">
   @import url('./assets/lesses/markdown.less');
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Microsoft Yahei, "PingHei", "Helvetica Neue", "Helvetica", "STHeitiSC-Light", "Arial", sans-serif;
-    height: 100%;
-    overflow: hidden;
-    background-color: #e0e0e0;
-  }
   .app {
     position: relative;
     left: -220px;
@@ -76,18 +49,5 @@ export default {
         transition: all ease .5s;
       }
     }
-  }
-
-  *::-webkit-scrollbar {
-      display: block;
-      width: 5px;
-      background: #FAFAFA;
-  }
-  *::-webkit-scrollbar-thumb {
-      border-radius: 5px;
-      background: #E0E0E0;
-  }
-  *::-webkit-scrollbar-thumb:hover {
-      background: #BDBDBD;
   }
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<div class="outputer" v-html='ripeTxt'></div>
+	<div v-html='ripeTxt' :class="[showPreview ? 'outputer' : 'hideoutputer']"></div>
 </template>
 
 <script>
@@ -10,6 +10,9 @@
       }
     },
     computed: {
+      showPreview () {
+        return this.$store.state.showPreview
+      },
       ripeTxt () {
         return this.$store.getters.articleMd
       }
@@ -35,4 +38,7 @@
     overflow-y: scroll;
     word-wrap: break-word;
 	}
+  .hideoutputer {
+    display:none;
+  }
 </style>

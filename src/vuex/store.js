@@ -32,6 +32,7 @@ const saveID = (state) => {
 export default new Vuex.Store({
 	state: {
 		showMenu: true,
+    showPreview: false,
 		articleList: [
 			{
 				id: createID(),
@@ -43,6 +44,9 @@ export default new Vuex.Store({
 	mutations: {
 		SHOW_MENU (state) {
 			state.showMenu = state.showMenu === false ? true : false
+		},
+    SHOW_PREVIEW (state) {
+			state.showPreview = state.showPreview === false ? true : false
 		},
 		TEXT_INPUT (state, txt) {
 			for (let i = 0, len = state.articleList.length; i < len; i++) {
@@ -125,6 +129,9 @@ export default new Vuex.Store({
 		showMenu ({ commit }) {
 			commit('SHOW_MENU')
 		},
+    showPreview ({ commit }){
+      commit('SHOW_PREVIEW')
+    },
 		textInput ({ commit }, txt) {
 			commit('TEXT_INPUT', txt)
 		},

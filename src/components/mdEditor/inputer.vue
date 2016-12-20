@@ -1,12 +1,15 @@
 <template>
-	<div>
+	<div :class="[showPreview ? 'inputer' : 'fullscreen']">
 		<textarea id="inputer" :value='rawTxt' @input='inputting' @scroll='syncStroll' @drop.stop.prevent='dragging' autofocus></textarea>
 	</div>
 </template>
 
 <script>
-	export default {
+  export default {
 		computed: {
+      showPreview () {
+        return this.$store.state.showPreview
+      },
 			rawTxt () {
 				return this.$store.getters.articleRaw
 			}
@@ -37,7 +40,7 @@
 </script>
 
 <style scoped lang="less">
-	div {
+	.inputer,.fullscreen {
 		width: 50%;
 		height: 100%;
 		margin-right: 10px;
@@ -58,4 +61,7 @@
 	    transition: all ease .3s;
 		}
 	}
+  .fullscreen {
+    width:100%;
+  }
 </style>

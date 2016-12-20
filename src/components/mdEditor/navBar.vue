@@ -12,8 +12,10 @@
 			<li><button @click='insert("\n# ")'><i class="fa fa-header"></i></button></li>
 			<li><button @click='insert("\n\n---\n\n")'><i class="fa fa-underline"></i></button></li>
 			<li><button @click='insert("\n\n| title | title | title |\n| --- | --- | --- |\n| item | item | item |")'><i class="fa fa-th"></i></button></li>
-			<li><button @click='redirect("https://github.com/jrainlau/markcook")'><i class="fa fa-github"></i></button></li>
-			<li><button @click='redirect("https://github.com/jrainlau/markcook/issues")'><i class="fa fa-question"></i></button></li>
+			<li><button @click='redirect("https://github.com/gaotang/bluemd")'><i class="fa fa-github"></i></button></li>
+			<li><button @click='redirect("https://github.com/gaotang/bluemd/issues")'><i class="fa fa-question"></i></button></li>
+      <li><button @click='showPreview'><i class="fa fa-columns"></i></button></li>
+
 		</ul>
 	</nav>
 </template>
@@ -39,6 +41,9 @@
 			showMenu () {
 				this.$store.dispatch('showMenu')
 			},
+      showPreview (){
+        this.$store.dispatch('showPreview')
+      },
 			insert (content) {
 				let inputer = document.querySelector('#inputer')
 				let startPosition = inputer.selectionStart
@@ -125,9 +130,12 @@
 				&:first-child {
 					border-right: 2px solid #00897B;
 				}
-				&:nth-last-child(2) {
+				&:nth-last-child(3) {
 					border-left: 2px solid #00897B;
 				}
+        &:last-child {
+          border-left: 2px solid #00897B;
+        }
 				button {
 					height: 45px;
 					width: 45px;

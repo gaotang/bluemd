@@ -1,6 +1,7 @@
 #FROM 指令指定基础镜像
 #比较常用的基础镜像有ubuntu，centos。这里使用了一个极小的基础镜像alpine
-FROM alpine:latest
+#FROM alpine:latest
+FROM blackmd:0.0.1
 
 #MAINTAINER指令用于将镜像制作者相关的信息写入到镜像中
 #您可以将您的信息填入name以及email
@@ -8,7 +9,7 @@ MAINTAINER TangGao <qq23745038@126.com>
 
 #RUN指令可以运行任何被基础image支持的命令，就像在操作系统上直接执行命令一样（如果使用ubuntu为基础镜像，这里应该用apt-get 命令安装）
 #安装nginx
-RUN apk --update add nginx
+#RUN apk --update add nginx
 
 #配置Nginx，并设置在标准输出流输出日志（这样执行容器时才会看到日志）
 RUN sed -i "s#root   html;#root   /usr/share/nginx/html;#g" /etc/nginx/nginx.conf

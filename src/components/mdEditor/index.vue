@@ -7,6 +7,7 @@
       </section>
     </main>
 </template>
+
 <script>
   import navBar from './navBar.vue'
   import inputer from './inputer.vue'
